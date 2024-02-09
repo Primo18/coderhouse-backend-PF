@@ -1,0 +1,8 @@
+<div class="home-container">
+    <h1>Bienvenido a Nuestra Aplicación</h1>
+    {{#if user}}
+    <p>Hola, {{user.first_name}}. <a href="/profile">Ver perfil</a> o <a href="/logout">Cerrar Sesión</a></p>
+    {{else}}
+    <p>Por favor, <a href="/login">Inicia Sesión</a> o <a href="/register">Regístrate</a>.</p>
+    {{/if}}
+</div>
