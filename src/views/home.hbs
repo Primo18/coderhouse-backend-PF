@@ -1,8 +1,43 @@
-<div class="home-container">
-    <h1>Bienvenido a Nuestra Aplicación</h1>
-    {{#if user}}
-    <p>Hola, {{user.first_name}}. <a href="/profile">Ver perfil</a> o <a href="/logout">Cerrar Sesión</a></p>
-    {{else}}
-    <p>Por favor, <a href="/login">Inicia Sesión</a> o <a href="/register">Regístrate</a>.</p>
-    {{/if}}
+<div>
+    <header>
+        <img class="img-logo" src="/img/logo.png" alt="Ecommerce Frutas & Verduras">
+        <h1>Ecommerce Frutas & Verduras</h1>
+        <div class="menu">
+            <a href="/auth/profile" class="btn">Ver Perfil</a>
+            <a href="/auth/logout" class="btn">Logout</a>
+        </div>
+    </header>
+
+    <!-- Paginación -->
+    <div class="pagination">
+        {{#if pagination.hasPrevPage}}
+        <a href="?page={{pagination.prevPage}}">Anterior</a>
+        {{/if}}
+
+        Página {{pagination.page}} de {{pagination.totalPages}}
+
+        {{#if pagination.hasNextPage}}
+        <a href="?page={{pagination.nextPage}}">Siguiente</a>
+        {{/if}}
+    </div>
+
+    <div id="products">
+        <ul id="products-list">
+            {{#each products}}
+            <li>
+                <img src="{{this.thumbnails.[0]}}" alt="{{this.name}}">
+                <h2>{{this.name}}</h2>
+                <p> {{this.description}}</p>
+                <p>Precio: ${{this.price}}</p>
+                <p>Stock: {{this.stock}}</p>
+                <button class="btn btn-primary" data-id="{{this.id}}">Agregar al carrito</button>
+            </li>
+            {{/each}}
+        </ul>
+    </div>
+
+
 </div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/home.js"></script>

@@ -1,6 +1,6 @@
 <div class="login-container">
     <h1>Login</h1>
-    <form action="/api/login" method="POST">
+    <form action="/auth/api/login" method="POST">
         <div class="form-group">
             <label for="email">Email</label>
             <input type="email" id="email" name="email" required>
@@ -11,10 +11,10 @@
         </div>
         <button type="submit">Login</button>
     </form>
-    <p>No tienes cuenta? <a href="/register">Regístrate aquí</a></p>
+    <p>No tienes cuenta? <a href="/auth/register">Regístrate aquí</a></p>
 
     <!-- Botón para ingresar con GitHub con icono de Font Awesome -->
-    <a href="/api/sessions/github" class="btn btn-github">
+    <a href="/auth/github" class="btn btn-github">
         <i class="fa-brands fa-github"></i> Ingresar con GitHub
     </a>
 </div>

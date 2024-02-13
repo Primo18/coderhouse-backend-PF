@@ -1,0 +1,56 @@
+/* Estilos generales */
+.cart-container {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    padding: 20px;
+    max-width: 700px;
+    margin: 20px auto;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    background-color: #1e8421;
+    color: white;
+    padding: 10px 0;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.product-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.product-item {
+    display: flex;
+    background-color: white;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-image img {
+    max-width: 100px;
+    border-radius: 5px;
+}
+
+.product-details {
+    margin-left: 20px;
+}
+
+.product-name {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.product-price,
+.product-quantity {
+    display: block;
+    color: #555;
+    margin-bottom: 5px;
+}

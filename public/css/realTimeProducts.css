@@ -1,0 +1,112 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+h1,
+h2 {
+    background-color: #1e8421;
+    color: white;
+    text-align: center;
+    padding: 1em;
+    margin: 0;
+}
+
+#container {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    justify-content: space-between;
+    /* Distribuye los elementos de manera equitativa en el espacio disponible */
+    align-items: flex-start;
+    padding: 10px;
+}
+
+/* Estilos para el formulario */
+#add-product-form {
+    flex: 1;
+    background-color: #fff;
+    margin: 20px auto;
+    padding: 20px;
+    width: 100%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+#add-product-form label,
+#add-product-form input {
+    display: block;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+button {
+    margin: 10px 0;
+    padding: 10px 20px;
+    background-color: #1e8421;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0a520c;
+}
+
+/* Estilos para la lista de productos */
+#products {
+    flex: 2;
+    background-color: #fff;
+    margin: 20px auto;
+    max-width: 1000px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#products-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+#products-list li {
+    margin: 16px;
+    padding: 16px;
+    text-align: center;
+    font-size: 18px;
+    border-radius: 4px;
+    width: calc(33.333% - 32px);
+    box-sizing: border-box;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#container-img {
+    width: 100%;
+}
+
+#products-list img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.btn {
+    padding: 10px 20px;
+    background-color: #1e8421;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #0a520c;
+}

@@ -1,0 +1,14 @@
+<div id="chat-container">
+    <div id="messages">
+        <!-- Los mensajes se mostrarán aquí -->
+    </div>
+    <form id="chat-form" action="/api/messages" method="post">
+        <input type="text" id="user" name="user" placeholder="Tu correo" required>
+        <input type="text" id="message" name="message" placeholder="Tu mensaje" required>
+        <button type="submit" id="send">Enviar</button>
+    </form>
+</div>
+
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/chat.js"></script>

@@ -1,0 +1,140 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    background-color: #1e8421;
+    color: white;
+    text-align: center;
+    padding: 1em;
+    margin: 0;
+}
+
+#products-list {
+    max-width: 1200px;
+    margin: 0 auto;
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+#products-list li {
+    margin: 10px;
+    /* Menor margen para un aspecto más compacto */
+    padding: 10px;
+    /* Padding reducido para cada card */
+    text-align: center;
+    font-size: 16px;
+    /* Tamaño de fuente ligeramente menor */
+    border-radius: 8px;
+    /* Bordes más redondeados */
+    width: calc(25% - 20px);
+    /* Hacer las cards más pequeñas y permitir más columnas */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Sombra más sutil */
+    transition: transform 0.2s;
+    /* Suaviza la transición */
+}
+
+#products-list li:hover {
+    transform: scale(1.05);
+    /* Agrandar un poco al hacer hover */
+}
+
+#products-list img {
+    max-width: 100%;
+    max-height: 200px;
+    /* Altura máxima de imagen reducida */
+    border-radius: 4px;
+    margin-bottom: 8px;
+    /* Menor margen debajo de la imagen */
+}
+
+#products-list p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    /* Ajusta este número según necesites */
+    -webkit-box-orient: vertical;
+}
+
+
+.btn {
+    padding: 10px 20px;
+    background-color: #1e8421;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #0a520c;
+}
+
+
+/* Estilos para la paginación */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.pagination a {
+    padding: 10px 15px;
+    background-color: #1e8421;
+    color: white;
+    text-decoration: none;
+    margin: 0 5px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.pagination a:hover {
+    background-color: #0a520c;
+}
+
+.pagination span {
+    margin: 0 10px;
+    line-height: 30px;
+}
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    background-color: #1e8421;
+    /* O el color de fondo que prefieras */
+    color: white;
+    /* Ajusta el color de texto si es necesario */
+}
+
+header h1 {
+    margin: 0;
+    /* Ajusta según necesites */
+    padding: 1em 0;
+    /* Ajusta el padding vertical si es necesario */
+}
+
+header .menu {
+    display: flex;
+}
+
+/* img logo */
+.img-logo {
+    width: 100px;
+    margin: 0;
+    padding: 0;
+}
