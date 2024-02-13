@@ -1,4 +1,4 @@
-import User from '../models/userModel.js';
+import userService from '../services/userService.js';
 import { hashPassword, comparePassword } from '../utils/passwordUtils.js';
 import jwt from 'jsonwebtoken';
 
@@ -35,11 +35,6 @@ export const login = async (req, res) => {
 
 export const register = async (req, res) => {
     try {
-        const { first_name, last_name, email, age, password } = req.body;
-        const hashedPassword = await hashPassword(password);
-        const user = new User({ first_name, last_name, email, age, password: hashedPassword });
-        await user.save();
-
         // Redirecciona al login en lugar de autenticar automáticamente al usuario
         res.redirect('/auth/login');
     } catch (error) {
@@ -65,7 +60,7 @@ export const changePassword = async (req, res) => {
     try {
         const { oldPassword, newPassword } = req.body;
         const userId = req.user.id;
-        const user = await User.findById(userId);
+        const user = await userService.getUserById(userId);
 
         if (!user) {
             return res.status(404).json({ message: "User not found." });

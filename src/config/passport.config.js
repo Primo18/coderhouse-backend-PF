@@ -1,6 +1,6 @@
 import passport from 'passport';
 import userService from '../services/userService.js';
-import { hashPassword, comparePassword } from '../utils/passwordUtils.js';
+import { comparePassword } from '../utils/passwordUtils.js';
 import { Strategy as LocalStrategy } from 'passport-local';
 import { Strategy as GitHubStrategy } from 'passport-github2';
 import { Strategy as JWTStrategy, ExtractJwt } from 'passport-jwt';
@@ -32,12 +32,7 @@ const initPassport = () => {
                 return done(null, false, { message: 'Email already registered' });
             }
 
-            const hashedPassword = await hashPassword(password);
-            const newUser = await userService.createUser({
-                ...req.body,
-                password: hashedPassword
-            });
-
+            const newUser = await userService.registerUser(req.body);
             return done(null, newUser);
         } catch (error) {
             done(error);

@@ -1,24 +1,10 @@
 import userDao from '../dao/userDao.js';
-import bcrypt from 'bcrypt';
+import { hashPassword, comparePassword } from '../utils/passwordUtils.js';
 import jwt from 'jsonwebtoken';
 
 const secretOrKey = 'secret'; // Debería estar en variables de entorno
 
 class UserService {
-
-
-    // const userSchema = new mongoose.Schema({
-    //     first_name: { type: String, required: true },
-    //     last_name: { type: String, required: true },
-    //     email: { type: String, required: true, unique: true },
-    //     age: { type: Number, required: true },
-    //     password: { type: String, required: true },
-    //     cart: { type: mongoose.Schema.Types.ObjectId, ref: 'Cart' }, // Referencia al modelo Cart
-    //     role: { type: String, default: 'user' },
-    // });
-
-
-    // Agregar usuario desde passport-github2
     async addGithubUser(profile) {
         const { displayName, emails } = profile;
         const email = emails[0].value;
@@ -46,7 +32,7 @@ class UserService {
             throw new Error('El correo ya está registrado.');
         }
 
-        const hashedPassword = await bcrypt.hash(password, 12);
+        const hashedPassword = await hashPassword(password);
         const newUser = { ...userData, password: hashedPassword };
         return userDao.createUser(newUser);
     }
@@ -57,7 +43,7 @@ class UserService {
             throw new Error('Usuario no encontrado.');
         }
 
-        const isMatch = await bcrypt.compare(password, user.password);
+        const isMatch = await comparePassword(password, user.password);
         if (!isMatch) {
             throw new Error('Contraseña incorrecta.');
         }
