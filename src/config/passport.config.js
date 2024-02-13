@@ -16,9 +16,9 @@ const jwtOptions = {
     secretOrKey: 'secret'
 };
 
-const GITHUB_CLIENT_ID = process.env.GITHUB_CLIENT_ID || "Iv1.edeeaa849b214240";
-const GITHUB_CLIENT_SECRET = process.env.GITHUB_CLIENT_SECRET || "a36de3fe25eba801faa2a436cf19cbbc85baaa4a";
-const GITHUB_CALLBACK_URL = process.env.GITHUB_CALLBACK_URL || "http://localhost:8080/auth/github/callback";
+const GITHUB_CLIENT_ID = process.env.GITHUB_CLIENT_ID || "Iv1.47581579138bdead";
+const GITHUB_CLIENT_SECRET = process.env.GITHUB_CLIENT_SECRET || "fcfee46d9860dda4463ca8704d2f03d71c052dd5";
+const GITHUB_CALLBACK_URL = process.env.GITHUB_CALLBACK_URL || "https://node.ferialibre.app/auth/github/callback";
 
 const initPassport = () => {
     passport.use('signup', new LocalStrategy({
