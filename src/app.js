@@ -14,7 +14,7 @@ import cartRoutes from './routes/cartRoutes.js';
 import cookieParser from 'cookie-parser';
 
 const app = express();
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT;
 
 // Database connection
 db.then(() => {

@@ -5,20 +5,22 @@ import { Strategy as LocalStrategy } from 'passport-local';
 import { Strategy as GitHubStrategy } from 'passport-github2';
 import { Strategy as JWTStrategy, ExtractJwt } from 'passport-jwt';
 
+const JWT_SECRET = process.env.PRIVATE_KEY;
+
 const jwtOptions = {
     jwtFromRequest: ExtractJwt.fromExtractors([(req) => {
         let token = null;
         if (req && req.cookies) {
-            token = req.cookies['token']; // Asegúrate de reemplazar 'nombreDeTuCookie' con el nombre real de tu cookie
+            token = req.cookies['token']; // Asegurar de reemplazar con el mismo nombre de la cookie que se establece en el controlador
         }
         return token;
     }]),
-    secretOrKey: 'secret'
+    secretOrKey: JWT_SECRET
 };
 
-const GITHUB_CLIENT_ID = process.env.GITHUB_CLIENT_ID || "Iv1.47581579138bdead";
-const GITHUB_CLIENT_SECRET = process.env.GITHUB_CLIENT_SECRET || "fcfee46d9860dda4463ca8704d2f03d71c052dd5";
-const GITHUB_CALLBACK_URL = process.env.GITHUB_CALLBACK_URL || "https://node.ferialibre.app/auth/github/callback";
+const GITHUB_CLIENT_ID = process.env.GITHUB_CLIENT_ID;
+const GITHUB_CLIENT_SECRET = process.env.GITHUB_CLIENT_SECRET;
+const GITHUB_CALLBACK_URL = process.env.GITHUB_CALLBACK_URL;
 
 const initPassport = () => {
     passport.use('signup', new LocalStrategy({

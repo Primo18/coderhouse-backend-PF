@@ -2,7 +2,7 @@ import userDao from '../dao/userDao.js';
 import { hashPassword, comparePassword } from '../utils/passwordUtils.js';
 import jwt from 'jsonwebtoken';
 
-const secretOrKey = 'secret'; // Debería estar en variables de entorno
+const secretOrKey = process.env.PRIVATE_KEY
 
 class UserService {
     async addGithubUser(profile) {

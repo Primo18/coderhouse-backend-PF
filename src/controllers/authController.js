@@ -3,7 +3,7 @@ import { hashPassword, comparePassword } from '../utils/passwordUtils.js';
 import jwt from 'jsonwebtoken';
 
 // Asegúrate de configurar estas variables de entorno adecuadamente
-const JWT_SECRET = 'secret';
+const JWT_SECRET = process.env.PRIVATE_KEY;
 
 export const getHome = (req, res) => {
     const userObj = req.user ? req.user.toObject() : null;
