@@ -74,6 +74,10 @@ class UserService {
         return userDao.getUserByEmail(email);
     }
 
+    async getCartsByUserId(userId) {
+        return userDao.getCartsByUserId(userId);
+    }
+
 
 }
 

@@ -26,6 +26,11 @@ class UserDao {
     async assignCartToUser(userId, cartId) {
         return User.findByIdAndUpdate(userId, { cart: cartId }, { new: true }).exec();
     }
+
+    async getCartsByUserId(userId) {
+        const user = await User.findById(userId).populate('cart').exec();
+        return user.cart;
+    }
 }
 
 export default new UserDao();

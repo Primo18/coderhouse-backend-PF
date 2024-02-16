@@ -5,7 +5,7 @@
   "main": "src/app.js",
   "type": "module",
   "scripts": {
-    "dev": "node --watch-path=./src --env-file=.env src/app.js",
+    "dev": "node --watch-path=./src --watch-path=./public --env-file=.env src/app.js",
     "start": "node src/app.js"
   },
   "keywords": [],

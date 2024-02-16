@@ -47,8 +47,9 @@ export const renderChat = async (req, res) => {
 
 export const renderCartPage = async (req, res) => {
     try {
-        const { cid } = req.params;
-        const cart = await viewService.getCartForView(cid);
+        // Asumiendo que req.user tiene la información del usuario autenticado, incluido su carrito
+        const userId = req.user._id;
+        const cart = await viewService.getCartForUser(userId);
         if (!cart) {
             throw new Error('No se pudo obtener el carrito');
         }

@@ -7,7 +7,7 @@ class ViewRouter extends CustomRouter {
         this.get('/chat', ['PUBLIC'], renderChat);
         this.get('/products', ['PUBLIC'], renderHomePage);
         this.get('/realtimeproducts', ['PUBLIC'], renderRealTimeProducts);
-        this.get('/carts/:cid', ['AUTHENTICATED'], renderCartPage);
+        this.get('/carts', ['AUTHENTICATED'], renderCartPage);
     }
 }
 

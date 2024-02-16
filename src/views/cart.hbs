@@ -11,7 +11,18 @@
                 <span class="product-price">Precio: ${{this.product.price}}</span>
                 <span class="product-quantity">Cantidad: {{this.quantity}}</span>
             </div>
+            <div class="product-actions">
+                <button class="remove-product" data-id="{{this.product.id}}">Eliminar</button>
+            </div>
         </li>
         {{/each}}
     </ul>
+    <div class="cart-summary">
+        <span class="cart-total
+        ">Total: ${{cart.total}}</span>
+        <button class="checkout">Pagar</button>
+        <button id="empty-cart-btn">Vaciar Carrito</button>
+    </div>
 </div>
+
+<script src="/js/cart.js"></script>

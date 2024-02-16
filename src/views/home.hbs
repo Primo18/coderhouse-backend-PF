@@ -5,6 +5,8 @@
         <div class="menu">
             <a href="/auth/profile" class="btn">Ver Perfil</a>
             <a href="/auth/logout" class="btn">Logout</a>
+            <!-- Icono del carrito con un span para la cantidad -->
+            <a href="/carts" class="btn cart-icon">Carrito <span id="cart-count">0</span></a>
         </div>
     </header>
 
@@ -30,7 +32,7 @@
                 <p> {{this.description}}</p>
                 <p>Precio: ${{this.price}}</p>
                 <p>Stock: {{this.stock}}</p>
-                <button class="btn btn-primary" data-id="{{this.id}}">Agregar al carrito</button>
+                <button class="btn btn-primary" data-id="{{this._id}}">Agregar al carrito</button>
             </li>
             {{/each}}
         </ul>
