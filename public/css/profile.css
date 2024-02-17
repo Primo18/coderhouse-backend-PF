@@ -30,7 +30,7 @@ p {
     margin-top: 20px;
     padding: 10px 20px;
     color: #fff;
-    background-color: #007BFF;
+    background-color: rgb(180, 18, 18);
     border-radius: 4px;
     text-decoration: none;
 }
@@ -54,7 +54,7 @@ p {
     line-height: 30px;
     text-align: center;
     border-radius: 50%;
-    background-color: #007BFF;
+    background-color: #1e8421;
     color: white;
     text-decoration: none;
     font-size: 16px;

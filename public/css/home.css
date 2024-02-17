@@ -120,3 +120,12 @@ header .menu {
     margin: 0;
     padding: 0;
 }
+
+footer {
+    background-color: #1e8421;
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+    bottom: 0;
+    width: 100%;
+}
