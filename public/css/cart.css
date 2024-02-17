@@ -1,5 +1,5 @@
-/* Estilos generales */
 .cart-container {
+    position: relative;
     font-family: Arial, sans-serif;
     background-color: #f7f7f7;
     padding: 20px;
@@ -16,6 +16,7 @@ h2 {
     padding: 10px 0;
     margin-bottom: 20px;
     border-radius: 5px;
+    margin-top: 60px;
 }
 
 .product-list {
@@ -53,4 +54,24 @@ h2 {
     display: block;
     color: #555;
     margin-bottom: 5px;
+}
+
+.back-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    border-radius: 50%;
+    background-color: #1e8421;
+    color: white;
+    text-decoration: none;
+    font-size: 25px;
+}
+
+.back-button:hover {
+    opacity: 0.8;
 }

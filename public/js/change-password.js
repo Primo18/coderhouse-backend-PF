@@ -1,7 +1,7 @@
 
 document.addEventListener("DOMContentLoaded", function () {
     const form = document.querySelector('form');
-    const errorMessage = document.getElementById('error-message'); // Accede al mensaje de error
+    const errorMessage = document.getElementById('error-message');
 
     form.onsubmit = function (event) {
         const newPassword = document.getElementById('newPassword').value;
@@ -9,12 +9,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (newPassword !== confirmPassword) {
             event.preventDefault();
-            errorMessage.textContent = 'Las nuevas contraseñas no coinciden. Por favor, inténtalo de nuevo.'; // Establece el mensaje de error
-            errorMessage.style.display = 'block'; // Muestra el mensaje de error
+            errorMessage.textContent = 'Las nuevas contraseñas no coinciden. Por favor, inténtalo de nuevo.';
+            errorMessage.style.display = 'block';
             return false;
         }
 
-        errorMessage.style.display = 'none'; // Asegúrate de ocultar el mensaje de error si todo está bien
+        errorMessage.style.display = 'none';
         return true;
     };
 });

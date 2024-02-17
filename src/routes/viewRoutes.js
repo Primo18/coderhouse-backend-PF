@@ -1,5 +1,5 @@
 import CustomRouter from './CustomRouter.js';
-import { renderHomePage, renderRealTimeProducts, renderChat, renderCartPage } from '../controllers/viewHandlers.js';
+import { renderHomePage, renderRealTimeProducts, renderChat, renderCartPage, renderContact } from '../controllers/viewHandlers.js';
 
 class ViewRouter extends CustomRouter {
     init() {
@@ -8,6 +8,7 @@ class ViewRouter extends CustomRouter {
         this.get('/products', ['PUBLIC'], renderHomePage);
         this.get('/realtimeproducts', ['PUBLIC'], renderRealTimeProducts);
         this.get('/carts', ['AUTHENTICATED'], renderCartPage);
+        this.get('/contact', ['AUTHENTICATED'], renderContact);
     }
 }
 

@@ -52,37 +52,6 @@ class CartController {
         }
     }
 
-    async getCartItemCount(req, res) {
-        try {
-            const userId = req.user._id; // Asumiendo que req.user está disponible gracias a Passport-JWT
-            const cart = await userService.getCartsByUserId(userId);
-
-            // Verifica si el usuario tiene un carrito y calcula la cantidad de productos
-            if (cart && cart.products.length > 0) {
-                const count = cart.products.reduce((acc, item) => acc + item.quantity, 0);
-                res.json({ count });
-            } else {
-                res.json({ count: 0 }); // Envía 0 si no hay carrito o si el carrito está vacío
-            }
-        } catch (error) {
-            res.status(500).json({ message: 'Failed to get cart item count', error: error.message });
-        }
-    }
-
-
-
-    // // Eliminar un producto del carrito
-    // async removeProductFromCart(req, res) {
-    //     try {
-    //         const { cid, pid } = req.params;
-    //         const updatedCart = await cartService.removeProductFromCart(cid, pid);
-    //         res.success(updatedCart);
-    //     } catch (error) {
-    //         res.error('Failed to remove product from cart', 500);
-    //     }
-    // }
-
-    // Vaciar un carrito
 
     async emptyCart(req, res) {
         try {
@@ -93,8 +62,6 @@ class CartController {
             res.status(500).json({ success: false, message: 'Error al vaciar el carrito', error: error.message });
         }
     }
-
-
     // // Actualizar un carrito entero
     // async updateCart(req, res) {
     //     try {

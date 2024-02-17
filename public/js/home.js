@@ -15,9 +15,11 @@ document.addEventListener('DOMContentLoaded', function () {
             })
                 .then(response => response.json())
                 .then(data => {
-                    updateCartCount();
-                    console.log(data);
-                    // Código para actualizar la UI basado en la respuesta, por ejemplo:
+                    // Incrementa el contador del carrito en el DOM
+                    const cartCountElement = document.getElementById('cart-count');
+                    let currentCount = parseInt(cartCountElement.textContent) || 0;
+                    cartCountElement.textContent = currentCount + 1;
+
                     alert('Producto agregado al carrito');
                 })
                 .catch(error => {
@@ -26,17 +28,3 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
-
-
-function updateCartCount() {
-    // Realiza una solicitud para obtener la cantidad actual de productos en el carrito
-    fetch('/api/carts/count', {
-        method: 'GET',
-        credentials: 'include',
-    })
-        .then(response => response.json())
-        .then(data => {
-            document.getElementById('cart-count').textContent = data.count;
-        })
-        .catch(error => console.error('Error:', error));
-}

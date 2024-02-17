@@ -1,7 +1,7 @@
 document.getElementById('empty-cart-btn').addEventListener('click', function () {
     fetch('/api/carts/emptyCart', {
         method: 'POST',
-        credentials: 'include', // Asegúrate de enviar las credenciales si tu endpoint requiere autenticación
+        credentials: 'include', // Para asegurar de enviar las credenciales si el endpoint requiere autenticación
     })
         .then(response => response.json())
         .then(data => {
@@ -16,13 +16,12 @@ document.getElementById('empty-cart-btn').addEventListener('click', function () 
 
 
 function updateCartView() {
-    // Selecciona el contenedor de la lista de productos en el carrito
     const productList = document.querySelector('.product-list');
 
     // Limpia el contenido de la lista de productos
     productList.innerHTML = '';
 
-    // Opcional: Mostrar un mensaje indicando que el carrito está vacío
+    // Mostrar un mensaje indicando que el carrito está vacío
     const emptyMessage = document.createElement('p');
     emptyMessage.textContent = 'Tu carrito está vacío.';
     productList.appendChild(emptyMessage);

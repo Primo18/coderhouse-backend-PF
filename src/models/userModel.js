@@ -8,7 +8,7 @@ const userSchema = new mongoose.Schema({
     age: { type: Number, required: true },
     password: { type: String, required: true },
     cart: { type: mongoose.Schema.Types.ObjectId, ref: 'Cart' }, // Referencia al modelo Cart
-    role: { type: String, default: 'user' },
+    role: { type: String, default: 'USER' },
 });
 
 // Aplicar el plugin de paginación a userSchema

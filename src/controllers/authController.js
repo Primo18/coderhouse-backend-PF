@@ -2,7 +2,6 @@ import userService from '../services/userService.js';
 import { hashPassword, comparePassword } from '../utils/passwordUtils.js';
 import jwt from 'jsonwebtoken';
 
-// Asegúrate de configurar estas variables de entorno adecuadamente
 const JWT_SECRET = process.env.PRIVATE_KEY;
 
 export const getHome = (req, res) => {
@@ -18,7 +17,7 @@ export const getProfile = (req, res) => {
 };
 
 export const logout = (req, res) => {
-    res.clearCookie('token'); // Asegúrate de que el nombre de la cookie sea el correcto
+    res.clearCookie('token');
     res.redirect('/auth/login');
 };
 
@@ -35,7 +34,6 @@ export const login = async (req, res) => {
 
 export const register = async (req, res) => {
     try {
-        // Redirecciona al login en lugar de autenticar automáticamente al usuario
         res.redirect('/auth/login');
     } catch (error) {
         console.error('Register error:', error);

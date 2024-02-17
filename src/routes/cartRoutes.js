@@ -10,9 +10,9 @@ class CartRoutes extends CustomRouter {
         // this.put("/:cid", ['AUTHENTICATED'], cartController.updateCart);
         // this.put("/:cid/products/:pid", ['AUTHENTICATED'], cartController.updateProductQuantity);
         // this.delete("/:cid/products/:pid", ['AUTHENTICATED'], cartController.removeProductFromCart);
+        // this.get("/count", ['AUTHENTICATED'], cartController.getCartItemCount);
 
         this.post("/addProduct", ['AUTHENTICATED'], cartController.addProductToCart);
-        this.get("/count", ['AUTHENTICATED'], cartController.getCartItemCount);
         this.post('/emptyCart', ['AUTHENTICATED'], cartController.emptyCart);
     }
 }

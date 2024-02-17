@@ -1,6 +1,6 @@
 import express from 'express';
 import __dirname from './utils/pathUtils.js';
-// import messagesRoutes from './routes/messageRoutes.js';
+import messagesRoutes from './routes/messageRoutes.js';
 import path from "path";
 import handlebars from "express-handlebars";
 import authRoutes from './routes/authRoutes.js';
@@ -68,7 +68,7 @@ app.use((req, res, next) => {
 app.use('/', viewRoutes);
 app.use('/api/products', productRoutes);
 app.use('/api/carts', cartRoutes);
-// app.use('/api/messages', messagesRoutes);
+app.use('/api/messages', messagesRoutes);
 app.use('/auth', authRoutes);
 
 io.on("connection", (socket) => {

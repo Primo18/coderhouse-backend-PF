@@ -1,4 +1,5 @@
 import viewService from '../services/viewService.js';
+import userService from '../services/userService.js';
 
 const renderPage = async (req, res, viewName, title, style) => {
     try {
@@ -9,6 +10,16 @@ const renderPage = async (req, res, viewName, title, style) => {
             sort,
             query
         });
+
+        // agregar contador de productos
+        let count = 0;
+        const userId = req.user._id; // Asumiendo que req.user está disponible gracias a Passport-JWT
+        const cart = await userService.getCartsByUserId(userId);
+
+        // Verifica si el usuario tiene un carrito y calcula la cantidad de productos
+        if (cart && cart.products.length > 0) {
+            count = cart.products.reduce((acc, item) => acc + item.quantity, 0);
+        }
 
         if (!products) {
             throw new Error('No se pudieron obtener los productos');
@@ -25,7 +36,8 @@ const renderPage = async (req, res, viewName, title, style) => {
                 hasNextPage: products.hasNextPage,
             },
             title,
-            style
+            style,
+            count
         });
     } catch (error) {
         console.error('Error:', error);
@@ -58,4 +70,8 @@ export const renderCartPage = async (req, res) => {
         console.error('Error:', error);
         res.status(500).json({ error: error.message });
     }
+};
+
+export const renderContact = async (req, res) => {
+    await renderPage(req, res, 'contact', 'Contact', 'contact.css');
 };

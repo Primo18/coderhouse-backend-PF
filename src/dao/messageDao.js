@@ -1,21 +1,28 @@
 import Message from '../models/messageModel.js';
 
-class MessageManagerMongo {
-    // Añadir un nuevo mensaje
-    async addMessage(messageData) {
-        const newMessage = new Message(messageData);
-        return await newMessage.save();
+export const createMessage = async (messageData) => {
+    try {
+        const message = new Message(messageData);
+        await message.save();
+        return message;
+    } catch (error) {
+        throw error;
     }
+};
 
-    // Obtener todos los mensajes
-    async getAllMessages() {
+export const getAllMessages = async () => {
+    try {
         return await Message.find();
+    } catch (error) {
+        throw error;
     }
+};
 
-    // Obtener mensaje por usuario
-    async getMessagesByUser(userEmail) {
-        return await Message.find({ user: userEmail });
+export const getMessagesByUser = async (user) => {
+    try {
+        return await Message.find({ user });
     }
-}
-
-export default MessageManagerMongo;
+    catch (error) {
+        throw error;
+    }
+};

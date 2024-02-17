@@ -19,11 +19,10 @@ class UserService {
             email,
             age: 18,
             password: ' ',
-            role: 'user'
+            role: 'USER'
         };
         return userDao.createUser(newUser);
     }
-
 
     async registerUser(userData) {
         const { email, password } = userData;

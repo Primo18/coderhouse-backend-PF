@@ -1,4 +1,5 @@
 <div class="register-container">
+    <a href="/auth/login" class="back-button">&#x2190;</a>
     <h1>Registro</h1>
     <form action="/auth/api/register" method="POST">
         <div class="form-group">
@@ -21,6 +22,15 @@
             <label for="password">Contraseña</label>
             <input type="password" id="password" name="password" required>
         </div>
+        <div class="form-group">
+            <label for="role">Rol</label>
+            <select id="role" name="role" required>
+                <option value="USER">User</option>
+                <option value="USER_PREMIUM">User Premium</option>
+                <option value="ADMIN">Admin</option>
+            </select>
+        </div>
+
         <button type="submit">Registrar</button>
     </form>
     <p>¿Ya tienes una cuenta? <a href="/auth/login">Inicia sesión aquí</a></p>

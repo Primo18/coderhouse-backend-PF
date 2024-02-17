@@ -1,12 +1,10 @@
-import { Router } from 'express';
-import MessagesController from '../controllers/MessagesController.js';
+import CustomRouter from "./CustomRouter.js";
+import * as messageController from "../controllers/MessagesController.js";
 
-const messagesRouter = Router();
-const messagesController = new MessagesController();
+class MessageRouter extends CustomRouter {
+    init() {
+        this.post('/send-message', ['AUTHENTICATED'], messageController.sendMessage);
+    }
+}
 
-messagesRouter.post('/', messagesController.addMessage);
-messagesRouter.get('/', messagesController.getAllMessages);
-messagesRouter.get('/:user', messagesController.getMessagesByUser);
-
-
-export default messagesRouter;
+export default new MessageRouter().getRouter();
